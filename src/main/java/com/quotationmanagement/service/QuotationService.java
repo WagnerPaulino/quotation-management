@@ -11,18 +11,15 @@ import com.quotationmanagement.domain.StockModel;
 import com.quotationmanagement.repository.QuotationRepository;
 import com.quotationmanagement.specification.QuotationSpecification;
 
+import lombok.RequiredArgsConstructor;
+
 @Service
+@RequiredArgsConstructor
 public class QuotationService {
 
-	private QuotationRepository quotationRepository;
+	private final QuotationRepository quotationRepository;
 
-	private StockManagerApiService stockManager;
-
-	@Autowired
-	public QuotationService(QuotationRepository quotationRepository, StockManagerApiService stockManager) {
-		this.quotationRepository = quotationRepository;
-		this.stockManager = stockManager;
-	}
+	private final StockManagerApiService stockManager;
 
 	private void validateStockId(String stockId) {
 		StockModel stock = this.stockManager.findStock(stockId);

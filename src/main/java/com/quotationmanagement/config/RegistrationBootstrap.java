@@ -9,11 +9,13 @@ import org.springframework.stereotype.Component;
 
 import com.quotationmanagement.service.StockManagerApiService;
 
+import lombok.RequiredArgsConstructor;
+
 @Component
+@RequiredArgsConstructor
 public class RegistrationBootstrap implements ApplicationListener<ContextRefreshedEvent> {
 
-	@Autowired
-	private StockManagerApiService stockManager;
+	private final StockManagerApiService stockManager;
 
 	private final Logger logger = LoggerFactory.getLogger(RegistrationBootstrap.class);
 

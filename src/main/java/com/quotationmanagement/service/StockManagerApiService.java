@@ -15,14 +15,15 @@ import org.springframework.web.client.RestTemplate;
 
 import com.quotationmanagement.domain.StockModel;
 
+import lombok.RequiredArgsConstructor;
+
 @Service
+@RequiredArgsConstructor
 public class StockManagerApiService {
 
-	@Autowired
-	private Environment env;
+	private final Environment env;
 
-	@Autowired
-	private RestTemplate restTemplate;
+	private final RestTemplate restTemplate;
 
 	private final Logger logger = LoggerFactory.getLogger(StockManagerApiService.class);
 

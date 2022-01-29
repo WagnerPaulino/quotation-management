@@ -4,7 +4,6 @@ import java.util.List;
 
 import javax.validation.Valid;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -20,15 +19,16 @@ import com.quotationmanagement.domain.Quotation;
 import com.quotationmanagement.repository.QuotationRepository;
 import com.quotationmanagement.service.QuotationService;
 
+import lombok.RequiredArgsConstructor;
+
 @RestController
 @RequestMapping("/quotations")
+@RequiredArgsConstructor
 public class QuotationRest {
 
-	@Autowired
-	private QuotationRepository quotationRepository;
+	private final QuotationRepository quotationRepository;
 
-	@Autowired
-	private QuotationService quotationService;
+	private final QuotationService quotationService;
 
 	@GetMapping
 	public List<Quotation> findAll() {
